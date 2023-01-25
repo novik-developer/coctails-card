@@ -1,0 +1,26 @@
+.link {
+    color: black;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        color: white;
+        background-color: #f59a57;
+        border-radius: 10px;
+        opacity: 0.8;
+    }
+    &:focus {
+        color: white;
+        background-color: #f59a57;
+        border-radius: 10px;
+        opacity: 0.8;
+    }
+}
+.item {
+    margin-left: 20px;
+    background-color: #eae0d9;
+    border-radius: 10px;
+}
+.active {
+    background-color: #f59a57;
+    border-radius: 10px;
+    opacity: 0.8;
+}

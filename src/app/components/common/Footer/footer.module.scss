@@ -1,0 +1,37 @@
+.footer__container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    background-color: #c8c6c6;
+    height: 100px;
+    border-radius: 10px;
+}
+.footer__images {
+    width: 270px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #d9d9d9;
+    border-radius: 50px;
+    margin-left: 75px;
+}
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.logo__footer {
+    width: 90px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 75px;
+}
