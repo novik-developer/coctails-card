@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import ContainerWrapper from "../components/common/container";
+import LoginForm from "../components/ui/loginForm";
+import RegisterForm from "../components/ui/registerForm";
 
 const Login = () => {
     const { type } = useParams();
@@ -18,7 +20,7 @@ const Login = () => {
                 <div className="row">
                     {formType === "register" ? (
                         <>
-                            <h3 className="mb-4">Register</h3>
+                            <RegisterForm />
                             <p>
                                 Already have account?
                                 <a role="button" onClick={toggleFormType}>
@@ -28,7 +30,7 @@ const Login = () => {
                         </>
                     ) : (
                         <>
-                            <h3 className="mb-4">Login</h3>
+                            <LoginForm />
                             <p>
                                 Dont have account?
                                 <a role="button" onClick={toggleFormType}>

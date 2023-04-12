@@ -4,16 +4,23 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
+import "./firebase";
 import App from "./app/App";
+import { createStore } from "./app/store/createStore";
+import { Provider } from "react-redux";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
 
+const store = createStore();
+
 root.render(
     <BrowserRouter>
-        <React.StrictMode>
+        {/* <React.StrictMode> */}
+        <Provider store={store}>
             <App />
-        </React.StrictMode>
+        </Provider>
+        {/* </React.StrictMode> */}
     </BrowserRouter>
 );
 

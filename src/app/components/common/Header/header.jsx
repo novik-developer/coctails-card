@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 import styles from "./header.module.scss";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import logo from "../../../../images/logo/logo.png";
+import { useAuth } from "../../../hooks/useAuth";
+import UserPrifile from "../../ui/userProfile";
 
 const Header = ({ children }) => {
+    const { isAuth } = useAuth();
     const history = useHistory();
     const handleEditLogin = () => {
         history.push("/login");
@@ -22,7 +25,7 @@ const Header = ({ children }) => {
                 {children}
             </div>
             <button className="btn" onClick={handleEditLogin}>
-                Вход/регистрация
+                {isAuth ? <UserPrifile /> : "Вход / регистрация"}
             </button>
         </div>
     );
