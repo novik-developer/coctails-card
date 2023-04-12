@@ -1,10 +1,10 @@
 import React from "react";
+import NewsPageList from "../components/page/newsPage/newsPageList";
 
-import Title from "../components/common/typografy/title";
 const News = () => {
     return (
         <>
-            <Title>News</Title>
+            <NewsPageList />
         </>
     );
 };

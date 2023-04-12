@@ -1,0 +1,24 @@
+.card {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.img {
+    width: 285px;
+    height: 385px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.title {
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+.favourite {
+    font-size: 30px;
+    border: none;
+    background: transparent;
+}
