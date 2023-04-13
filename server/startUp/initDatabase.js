@@ -37,6 +37,7 @@ async function createInitialEntity(Model, data) {
                 await newItem.save();
                 return newItem;
             } catch (e) {
+                return e;
                 console.log(e);
             }
         })
