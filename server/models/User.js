@@ -3,14 +3,14 @@ const { Schema, model } = require("mongoose");
 const schema = new Schema(
     {
         name: { type: String },
-        email: { type: String, required },
-        password: { type: String, required },
+        email: { type: String, required: true, unique: true },
+        password: { type: String },
         completedMeetings: { type: Number },
         image: String,
         profession: { type: Schema.Types.ObjectId, ref: "Profession" },
         bar: { type: Schema.Types.ObjectId, ref: "Bar" },
         qualities: [{ type: Schema.Types.ObjectId, ref: "Quality" }],
-        rate: number,
+        rate: Number,
         sex: { type: String, enum: ["male", "female", "other"] },
     },
     { timestamps: true }
