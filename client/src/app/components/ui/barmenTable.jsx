@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Table from "../common/table/table";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Bars from "./bars";
+import { useSelector } from "react-redux";
+import { getIsLoggedIn } from "../../store/users";
 
 export const renderAvatar = () => {
     return (
@@ -21,6 +23,8 @@ export const renderAvatar = () => {
 };
 
 const BarmenTable = ({ barmens, onSort, selectedSort, onDelete }) => {
+    const isLoggedIn = useSelector(getIsLoggedIn());
+
     const columns = {
         avatar: {
             name: "Аватар",
@@ -47,14 +51,15 @@ const BarmenTable = ({ barmens, onSort, selectedSort, onDelete }) => {
             name: "Рейтинг"
         },
         delete: {
-            component: (barmen) => (
-                <button
-                    onClick={() => onDelete(barmen._id)}
-                    className="btn btn-danger"
-                >
-                    удалить
-                </button>
-            )
+            component: (barmen) =>
+                isLoggedIn ? (
+                    <button
+                        onClick={() => onDelete(barmen._id)}
+                        className="btn btn-danger"
+                    >
+                        удалить
+                    </button>
+                ) : null
         }
     };
 

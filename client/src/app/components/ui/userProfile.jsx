@@ -1,48 +1,47 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { getUsersList } from "../../store/user";
-// import { useSelector } from "react-redux";
-// import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom/cjs/react-router-dom";
+import { getCurrentUserData, loadUsersList } from "../../store/users";
 
-import { useAuth } from "../../hooks/useAuth";
-import LogOut from "../../layouts/logOut";
-// import LogOut from "../../layouts/logOut";
-
-const UserPrifile = () => {
-    // const dispatch = useDispatch();
-    const { isAuth, email } = useAuth();
-    console.log(isAuth, email);
+const UserProfile = () => {
     const [isOpen, setOpen] = useState(false);
 
-    const user = useSelector(getUsersList());
-    console.log(user);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadUsersList());
+    }, []);
+
+    const currentUser = useSelector(getCurrentUserData());
 
     const toggleMenu = () => {
         setOpen((prev) => !prev);
     };
-
+    if (!currentUser) return "Loading...";
     return (
         <div className="dropdown" onClick={toggleMenu}>
             <div className="btn dropdown-toggle d-flex align-items-center">
-                <div className="me-2">PROFILE</div>
+                <div className="me-2">{currentUser.name}</div>
                 <img
-                    src={`https://avatars.dicebear.com/api/avataaars/${(
-                        Math.random() + 1
-                    )
-                        .toString(36)
-                        .substring(7)}.svg`}
+                    src={currentUser.image}
                     alt="avatar"
                     height="40"
                     className="img-responsive rounded-circle"
                 />
             </div>
             <div className={"w-100 dropdown-menu" + (isOpen ? "show" : "")}>
-                <div className="dropdown-item">
-                    <LogOut />
-                </div>
+                <Link
+                    to={`/users/${currentUser._id}`}
+                    className="dropdown-item"
+                >
+                    Profile
+                </Link>
+                <Link to="/logout" className="dropdown-item">
+                    Log out
+                </Link>
             </div>
         </div>
     );
 };
 
-export default UserPrifile;
+export default UserProfile;

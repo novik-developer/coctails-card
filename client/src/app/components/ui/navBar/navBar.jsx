@@ -20,16 +20,6 @@ const NavBar = () => {
                     <NavLink
                         className={`nav-link ${styles.link}`}
                         aria-current="page"
-                        to="/users"
-                        activeClassName={styles.active}
-                    >
-                        UserPage
-                    </NavLink>
-                </li>
-                <li className={`nav-item ${styles.item}`}>
-                    <NavLink
-                        className={`nav-link ${styles.link}`}
-                        aria-current="page"
                         to="/barmens"
                         activeClassName={styles.active}
                     >

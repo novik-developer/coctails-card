@@ -3,13 +3,13 @@ import TextField from "../common/form/textField";
 import { validator } from "../../utils/validator";
 import CheckBoxField from "../common/form/checkBoxField";
 import { useDispatch } from "react-redux";
-import { logIn } from "../../store/user";
-// import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { logIn } from "../../store/users";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const LoginForm = () => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState({});
-    // const history = useHistory();
+    const history = useHistory();
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -47,12 +47,11 @@ const LoginForm = () => {
         e.preventDefault();
         const isValide = validate();
         if (!isValide) return;
-        // history.push("/");
-        // localStorage.setItem("USER", JSON.stringify(data));
-        dispatch(logIn(data));
+        const redirect = history.location.state
+            ? history.location.state.from.pathname
+            : "/";
+        dispatch(logIn({ payload: data, redirect }));
     };
-
-    console.log("error", errors);
 
     useEffect(() => {
         validate();

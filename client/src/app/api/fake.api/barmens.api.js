@@ -192,7 +192,7 @@ const getById = (id) =>
         window.setTimeout(function () {
             resolve(
                 JSON.parse(localStorage.getItem("barmens")).find(
-                    (user) => user._id === id
+                    (barmen) => barmen._id === id
                 )
             );
         }, 1000);
