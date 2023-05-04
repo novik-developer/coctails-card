@@ -2,19 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import ContainerWrapper from "../../common/container";
 import { Spinner } from "react-bootstrap";
-import { useQualities } from "../../../hooks/useQualities";
-import { useBarmen } from "../../../hooks/useBarmens";
 import BarmenCard from "../../ui/barmenCard";
 import QualitiesCard from "../../ui/qualitiesCard";
+import { useBarmen } from "../../../hooks/useBarmens";
 
 const BarmenPage = ({ barmenId }) => {
-    const { qualities } = useQualities();
     const { getUserById } = useBarmen();
 
     const barmen = getUserById(barmenId);
-    console.log(qualities);
-    console.log(barmen);
-    // console.log(barmen.qualities);
 
     if (!barmen) {
         <Spinner />;

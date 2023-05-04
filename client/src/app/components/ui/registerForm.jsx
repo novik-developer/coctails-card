@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { signUp } from "../../store/user";
+import { signUp } from "../../store/users";
 import { validator } from "../../utils/validator";
 import TextField from "../common/form/textField";
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({
+        name: "",
         email: "",
         password: ""
     });
@@ -75,9 +76,7 @@ const RegisterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const isValid = validate();
         if (!isValid) return;
-        console.log("data from registerForm", data);
         dispatch(signUp(data));
     };
 
@@ -87,6 +86,13 @@ const RegisterForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <TextField
+                label="Имя"
+                name="name"
+                value={data.name}
+                onChange={handleChange}
+                error={errors.name}
+            />
             <TextField
                 label="Электронная почта"
                 name="email"

@@ -3,11 +3,14 @@ import PropTypes from "prop-types";
 import styles from "./header.module.scss";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import logo from "../../../../images/logo/logo.png";
-import { useAuth } from "../../../hooks/useAuth";
-import UserPrifile from "../../ui/userProfile";
+// import { useAuth } from "../../../hooks/useAuth";
+import UserProfile from "../../ui/userProfile";
+import { getIsLoggedIn } from "../../../store/users";
+import { useSelector } from "react-redux";
 
 const Header = ({ children }) => {
-    const { isAuth } = useAuth();
+    const userIsLoggedIn = useSelector(getIsLoggedIn());
+
     const history = useHistory();
     const handleEditLogin = () => {
         history.push("/login");
@@ -16,6 +19,8 @@ const Header = ({ children }) => {
     const handleGoHome = () => {
         history.push("/");
     };
+    // if (!currentUser) return "...LOADING!";
+
     return (
         <div className={styles.header}>
             <div className="btn" onClick={handleGoHome}>
@@ -24,8 +29,14 @@ const Header = ({ children }) => {
             <div className="container-fluid justify-content-center">
                 {children}
             </div>
-            <button className="btn" onClick={handleEditLogin}>
-                {isAuth ? <UserPrifile /> : "Вход / регистрация"}
+            <button className="btn">
+                {userIsLoggedIn ? (
+                    <UserProfile />
+                ) : (
+                    <div className="btn" onClick={handleEditLogin}>
+                        {"Вход / регистрация"}
+                    </div>
+                )}
             </button>
         </div>
     );

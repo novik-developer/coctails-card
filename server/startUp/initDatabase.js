@@ -4,9 +4,10 @@
 const Profession = require("../models/Profession");
 const Quality = require("../models/Quality");
 const Bar = require("../models/Bar");
-
+const Barmens = require("../models/Barmens");
 const qualitiesMock = require("../mock/qualities.json");
 const barsMock = require("../mock/bars.json");
+const barmensMock = require("../mock/barmens.json");
 const professionMock = require("../mock/professions.json");
 
 module.exports = async () => {
@@ -25,6 +26,11 @@ module.exports = async () => {
     if (bars.length !== barsMock.length) {
         await createInitialEntity(Bar, barsMock);
     }
+    // barmens
+    const barmens = await Barmens.find();
+    if (barmens.length !== barmensMock.length) {
+        await createInitialEntity(Barmens, barmensMock);
+    }
 };
 
 async function createInitialEntity(Model, data) {
@@ -37,8 +43,7 @@ async function createInitialEntity(Model, data) {
                 await newItem.save();
                 return newItem;
             } catch (e) {
-                return e;
-                console.log(e);
+                return console.log(e);
             }
         })
     );

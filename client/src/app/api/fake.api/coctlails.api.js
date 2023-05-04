@@ -8,6 +8,8 @@ import Mankhetan from "../../../images/mankhetan.jpeg";
 import Margarita from "../../../images/margarita.webp";
 import MoscowMule from "../../../images/Moscow-Mule.jpeg";
 import Negroni from "../../../images/negroni.jpeg";
+import MojitoNoAlcohol from "../../../images/mojito.jpeg";
+import StClement from "../../../images/st-clement.jpeg";
 
 const recipes = {
     CubaLibre: {
@@ -59,6 +61,16 @@ const recipes = {
         _id: "10",
         name: "Negroni",
         text: "Хотите попробовать Негрони? Это крепкий горький коктейль на основе джина с добавлением биттера и красного вермута. Идеален как в качестве аперитива, так и дижестива. Один из самых популярных коктейлей в мире, потрясающе вкусный и гармоничный. "
+    },
+    Mojito: {
+        _id: "11",
+        name: "Mojito",
+        text: "Вкус классического 'Мохито' освежающий и приятный, с мятными нотками и кисловатым послевкусием. Его подают в высоком бокале 'Касабланка' с двумя трубочками: через одну пьют напиток, а через другую выходит воздух из-под ледяного слоя."
+    },
+    StClement: {
+        _id: "11",
+        name: "Mojito",
+        text: "Простая смесь апельсинового и лимонного сока прекрасно утоляет жажду и подтверждает факт, что лучший фруктовый сок — свежевыжатый. Кстати, название апельсинового коктейля — не только имя Римского папы, но и название округа на чудесном острове Джерси вблизи Франции."
     }
 };
 
@@ -155,20 +167,20 @@ const coctails = [
     },
     {
         id: 11,
-        imgUrl: CubaLibre,
+        imgUrl: MojitoNoAlcohol,
         isFavourite: false,
-        title: "No-acl",
+        title: "Mojito",
         isAlc: true,
-        recipe: recipes.CubaLibre,
+        recipe: recipes.Mojito,
         description: "The best coctail ever!"
     },
     {
         id: 12,
-        imgUrl: CubaLibre,
+        imgUrl: StClement,
         isFavourite: false,
-        title: "No-acl",
+        title: "StClement",
         isAlc: true,
-        recipe: recipes.CubaLibre,
+        recipe: recipes.StClement,
         description: "The best coctail ever!"
     }
 ];

@@ -33,7 +33,15 @@ const BarmenProvider = ({ children }) => {
         return barmens.find((barmen) => barmen._id === barmenId);
     }
 
-    const getBarmensId = (id) => {
+    const getBarmensId = (barmenId) => {
+        for (let i = 0; i < barmens.length; i++) {
+            if (barmens[i]._id === barmenId) {
+                return barmens[i];
+            }
+        }
+    };
+
+    const getDeleteBarmensId = (id) => {
         setBarmens(barmens.filter((barmen) => barmen._id !== id));
     };
 
@@ -45,7 +53,8 @@ const BarmenProvider = ({ children }) => {
                 getSortedBarmens,
                 sortedBarmens,
                 sortBy,
-                getUserById
+                getUserById,
+                getDeleteBarmensId
             }}
         >
             {isLoading ? children : <Spinner />}

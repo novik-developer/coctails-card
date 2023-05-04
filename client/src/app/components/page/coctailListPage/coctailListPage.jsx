@@ -29,7 +29,6 @@ const CoctailsListPage = () => {
         getFavouriteCoctail(id);
     };
     const handlePageChange = (pageIndex) => {
-        console.log("pageIndex", pageIndex);
         setCurrentPage(pageIndex);
     };
 
