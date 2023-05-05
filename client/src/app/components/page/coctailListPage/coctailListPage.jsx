@@ -74,7 +74,7 @@ const CoctailsListPage = () => {
                             Любимые
                         </button>
                         <button
-                            className="btn btn-primary"
+                            className="btn btn-primary mb-2"
                             onClick={handleNoAlc}
                         >
                             Безалкогольные
