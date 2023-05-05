@@ -1,0 +1,6 @@
+{
+    "port": 8888,
+    "mongoURI": "mongodb+srv://Andrey:Lzntk0579293A@cluster0.yfxufwu.mongodb.net/coctail-card?retryWrites=true&w=majority",
+    "accessSecret": "super secret key",
+    "refreshSecret": "super secret key "
+}
